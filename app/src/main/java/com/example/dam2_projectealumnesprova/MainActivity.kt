@@ -25,18 +25,12 @@ class MainActivity : AppCompatActivity() {
         binding.spinnerCurs.setAdapter(ArrayAdapter<CursEnum>(this, android.R.layout.simple_spinner_item, CursEnum.values()));
 
         binding.button4.setOnClickListener {
-            println("gello1")
-            System.out.println("gello1")
-
             startActivity(Intent(applicationContext, LlistatAlumnes::class.java))
         }
 
         binding.button3.setOnClickListener {
-            println("gell2")
-            System.out.println("gello2")
-
-                DataSource.setItemToArray(binding.editTextNom.text.toString(), binding.editTextEdat.text.toString(),
-                    CursEnum.getCursByText(binding.spinnerCurs.selectedView.toString()))
+            DataSource.listItemsViewModel.add(AlumnesViewModel(binding.editTextNom.text.toString(), binding.editTextEdat.text.toString(),
+                    CursEnum.getCursByText(binding.spinnerCurs.selectedItem.toString())))
 
         }
     }

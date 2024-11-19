@@ -1,6 +1,7 @@
 package com.example.dam2_projectealumnesprova
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,7 +25,7 @@ class LlistatAlumnes : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        binding.spinnerCurs.setAdapter(ArrayAdapter<CursEnum>(this, android.R.layout.simple_spinner_item, CursEnum.values()));
         // getting the recyclerview by its id
         val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
 
@@ -34,10 +35,16 @@ class LlistatAlumnes : AppCompatActivity() {
         // ArrayList of class ItemsViewModel
 
         // This will pass the ArrayList to our Adapter
-        val adapter = CustomAdapter(DataSource.listItemsViewModel)
+        var adapter = CustomAdapter(DataSource.listItemsViewModel)
 
         // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
+
+        binding.button.setOnClickListener{
+            val newData = DataSource.listItemsViewModel.filter { it.curs.toString()  == binding.spinnerCurs.selectedItem.toString() }
+            adapter = CustomAdapter(newData);
+            recyclerview.adapter = adapter
+        }
 
     }
 }

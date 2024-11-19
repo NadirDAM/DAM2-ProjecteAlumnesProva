@@ -7,8 +7,13 @@ public enum class CursEnum(s: String) {
     companion object {
         fun getCursByText (name:String): CursEnum {
             for (letter in CursEnum.values()) {
-                letter.equals(name)
-                return letter
+                System.out.println(letter.toString().equals(name.toString()))
+                System.out.println(letter)
+                System.out.println(name)
+                if (letter.toString().equals(name.toString())) {
+                    return letter
+
+                }
             }
             return SMX1
         }
