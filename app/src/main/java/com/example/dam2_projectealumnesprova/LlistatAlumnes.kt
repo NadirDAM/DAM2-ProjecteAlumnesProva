@@ -1,7 +1,9 @@
 package com.example.dam2_projectealumnesprova
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -44,6 +46,11 @@ class LlistatAlumnes : AppCompatActivity() {
             val newData = DataSource.listItemsViewModel.filter { it.curs.toString()  == binding.spinnerCurs.selectedItem.toString() }
             adapter = CustomAdapter(newData);
             recyclerview.adapter = adapter
+        }
+
+        binding.recyclerview.setOnClickListener{ item: View? ->
+            System.out.println(item)
+            Toast.makeText(this, "Clic en: ${item}", Toast.LENGTH_SHORT).show()
         }
 
     }
