@@ -11,9 +11,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTextNomLayout"
-        android:layout_width="260dp"
-        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:hint="Nom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,8 +30,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTextEdatLayout"
-        android:layout_width="260dp"
-        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
         android:hint="Edat"
         app:layout_constraintEnd_toEndOf="parent"
